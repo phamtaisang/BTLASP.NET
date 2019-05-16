@@ -11,6 +11,21 @@ namespace BTL_NET2
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "loaisanpham",
+               url: "loai-sp/{MetaTitle}-{id}",
+               defaults: new { controller = "TrangChu", action = "DSLoaiSP", id = UrlParameter.Optional }
+           );
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "Loai",
+                url: "loai-san-pham",
+                defaults: new { controller = "LoaiSanPham", action = "Index", id = UrlParameter.Optional }
+            );
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
@@ -18,6 +33,7 @@ namespace BTL_NET2
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            
         }
     }
 }
