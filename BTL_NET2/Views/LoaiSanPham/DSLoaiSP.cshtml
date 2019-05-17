@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "DSLoaiSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DSLoaiSP</h2>
+
+@ViewBag.id
+@foreach(var i in @ViewBag.Hang)
+{
+    @i.name;
+    <li>Loại là : @i.producer.name</li>
+    
+}

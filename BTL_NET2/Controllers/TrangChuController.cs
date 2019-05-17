@@ -13,8 +13,9 @@ namespace BTL_NET2.Controllers
         Model1 data = new Model1();
         public ActionResult Index()
         {
-            var sanpham = data.PRODUCT.ToList();   
-            return View(sanpham);
+            var sanpham = data.PRODUCT.ToList();
+            ViewBag.sanpham = sanpham;
+            return View();
         }
         public ActionResult HeaderLoaiSP()
         {
