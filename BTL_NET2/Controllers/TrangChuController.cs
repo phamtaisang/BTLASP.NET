@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace BTL_NET2.Controllers
 {
@@ -11,10 +13,15 @@ namespace BTL_NET2.Controllers
     {
         // GET: TrangChu
         Model1 data = new Model1();
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var sanpham = data.PRODUCT.ToList();
-            ViewBag.sanpham = sanpham;
+            var sanphamNoiBat = (from i in data.PRODUCT where i.status==1 select i).ToList();
+
+            //ascending sắp xếp tăng
+            //descending sắp xếp giảm
+            IPagedList<PRODUCT> sanphammoi = (from i in data.PRODUCT orderby i.id descending select i).ToPagedList(page ?? 1 ,20);
+            ViewBag.sanphamNB = sanphamNoiBat;
+            ViewBag.sanphammoi = sanphammoi;
             return View();
         }
         public ActionResult HeaderLoaiSP()
