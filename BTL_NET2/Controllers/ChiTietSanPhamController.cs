@@ -18,6 +18,14 @@ namespace BTL_NET2.Controllers
             var cmm = (from cm in data.feedback
                        join us in data.account on cm.accountid equals us.id
                        where cm.productid == id select cm).ToList();
+
+            foreach (var i in chitiet)
+            {
+                //ViewBag.idLoai = i.producerid;
+                var splienquan = (from lq in data.PRODUCT where lq.producerid == i.producerid select lq).ToList();
+                ViewBag.splienquan = splienquan;
+            }
+            
             ViewBag.cmm = cmm;
             ViewBag.chitiet = chitiet;
             return View();
