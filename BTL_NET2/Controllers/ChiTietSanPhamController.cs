@@ -25,7 +25,6 @@ namespace BTL_NET2.Controllers
                 var splienquan = (from lq in data.PRODUCT where lq.producerid == i.producerid select lq).ToList();
                 ViewBag.splienquan = splienquan;
             }
-            
             ViewBag.cmm = cmm;
             ViewBag.chitiet = chitiet;
             return View();

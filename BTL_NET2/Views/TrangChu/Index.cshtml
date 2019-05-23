@@ -1,7 +1,7 @@
 ﻿@using BTL_NET2.Models;
 @using PagedList;
 @using PagedList.Mvc;
-
+@model PagedList.IPagedList<BTL_NET2.Models.PRODUCT>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -43,14 +43,10 @@
                                     </div>
                                 </div>
                             }
-
-                                @*<div class="col-sm-12">
-                                    @Html.PagedListPager(@ViewBag.sanphamNB,sotrang =>Url.Action("index",
-                                   new {  }))
-                                </div>*@
+                          
                         </div>
                     </div> <!-- .beta-products-list -->
-
+                    
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
@@ -63,32 +59,35 @@
                             @foreach (var item in ViewBag.sanphammoi)
                             {
                                 var url = "/chi-tiet/" + item.name + "-" + item.id;
-                            <div class="col-sm-3">
-                                <div class="single-item">
-                                    <div class="single-item-header">
-                                        <a href="@url"><img src="~/Style_CSS/image/product/@item.images" alt=""></a>
-                                    </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">@item.name</p>
-                                        <p class="single-item-price">
-                                            <span>@item.price $ </span>
-                                        </p>
-                                    </div>
-                                    <div class="single-item-caption">
+                                <div class="col-sm-3">
+                                    <div class="single-item">
+                                        <div class="single-item-header">
+                                            <a href="@url"><img src="~/Style_CSS/image/product/@item.images" alt=""></a>
+                                        </div>
+                                        <div class="single-item-body">
+                                            <p class="single-item-title">@item.name</p>
+                                            <p class="single-item-price">
+                                                <span>@item.price $ </span>
+                                            </p>
+                                        </div>
+                                        <div class="single-item-caption">
 
-                                        <a class="beta-btn primary" href="@url">Chi tiết<i class="fa fa-chevron-down"></i></a>
-                                        <div class="clearfix"></div>
+                                            <a class="beta-btn primary" href="@url">Chi tiết<i class="fa fa-chevron-down"></i></a>
+                                            <div class="clearfix"></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             }
-                            <div class="col-sm-12">
-                                @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
-                            </div>
+                            @*phân trang*@
+                                <div class="col-sm-12 text-center">
+                                    @*Trang @(Model.PageCount < ViewBag.sanphammoi.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount*@
+          
+                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }));
+                                </div>
                         </div>
-                        
+
                         <div class="space40">&nbsp;</div>
-                   
+
                     </div> <!-- .beta-products-list -->
                 </div>
             </div> <!-- end section with sidebar and main content -->

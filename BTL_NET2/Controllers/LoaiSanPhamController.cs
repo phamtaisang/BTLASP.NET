@@ -1,4 +1,6 @@
 ﻿using BTL_NET2.Models;
+using PagedList;
+using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +15,26 @@ namespace BTL_NET2.Controllers
         private object sp;
 
         // GET: LoaiSanPham
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            
+            //bien so san pham tren 1 trang
+            int pageSize = 3;
+            //tao bien so trang
+            int pageNumber = (page ?? 1);
             var loai = data.category.ToList();
+            IPagedList<PRODUCT> sp = data.PRODUCT.ToList().ToPagedList(pageNumber, pageSize);
+            ViewBag.sp = sp;
             ViewBag.loai = loai;
-            return View();
+            return View(sp);
         }
-        public ActionResult DSLoaiSP(int id)
+        public ActionResult DS_sanpham(int id)
         {
-            var Hang = (from sp in data.PRODUCT join tl in data.category on sp.catID equals tl.id join h in data.producer on sp.producerid equals h.id where tl.id==id select sp).ToList();
-            // var Hang = (from h in data.producer select h).ToList();
+            var loai = data.category.ToList();
+            var sanpham = (from sp in data.PRODUCT join tl in data.category on sp.catID equals tl.id where tl.id==id select sp).ToList();
+            ViewBag.loai = loai;
             ViewBag.id = id;
-            ViewBag.Hang = Hang;
+            ViewBag.sanpham = sanpham;
+            
             return View();
         }
 

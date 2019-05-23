@@ -706,7 +706,7 @@
     <Content Include="Views\LoaiSanPham\Index.cshtml" />
     <Content Include="Views\ChiTietSanPham\Index.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\LoaiSanPham\DSLoaiSP.cshtml" />
+    <Content Include="Views\LoaiSanPham\DS_sanpham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
