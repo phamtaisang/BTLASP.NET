@@ -13,7 +13,7 @@ namespace BTL_NET2.Controllers
         // GET: ChiTietSanPham
         public ActionResult Index(int id)
         {
-            ViewBag.id = id;
+            //ViewBag.id = id;
             var chitiet = (from ct in data.PRODUCT where ct.id == id select ct).ToList();
             var cmm = (from cm in data.feedback
                        join us in data.account on cm.accountid equals us.id
@@ -22,9 +22,11 @@ namespace BTL_NET2.Controllers
             foreach (var i in chitiet)
             {
                 //ViewBag.idLoai = i.producerid;
-                var splienquan = (from lq in data.PRODUCT where lq.producerid == i.producerid select lq).ToList();
+                var splienquan = (from lq in data.PRODUCT where lq.producerid == i.producerid select lq).Take(3).ToList();
                 ViewBag.splienquan = splienquan;
             }
+            var sanphammoi = (from i in data.PRODUCT orderby i.id descending select i).Take(4).ToList();
+            ViewBag.sanphammoi = sanphammoi;
             ViewBag.cmm = cmm;
             ViewBag.chitiet = chitiet;
             return View();
