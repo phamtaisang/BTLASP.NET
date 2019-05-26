@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-sm-push-3">
+            <div class="log-in">
+                @using (Html.BeginForm("DangNhap", "DangNhap", FormMethod.Post))
+                {<h2>Đăng Nhập</h2>
+                    <p style="color:red">@ViewBag.thongbao</p>
+                    <p>Email</p>
+                    <p>@Html.TextBox("txtEmail")</p>
+                    <p>Mật khẩu</p>
+                    <p>@Html.Password("txtMatKhau")</p>
+                    <p><input type="submit" name="btnsubmit" value="Đăng Nhập" /></p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

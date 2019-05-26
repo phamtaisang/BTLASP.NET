@@ -16,10 +16,9 @@ namespace BTL_NET2.Controllers
         public ActionResult Index(int? page)
         {
             var sanphamNoiBat = (from i in data.PRODUCT where i.status==1 select i).Take(4).ToList();
-
             //ascending sắp xếp tăng
             //descending sắp xếp giảm
-  
+
             //bien so san pham tren 1 trang
             int pageSize = 4;
             //tao bien so trang

@@ -25,6 +25,14 @@ namespace BTL_NET2
                url: "chi-tiet/{MetaTitle}-{id}",
                defaults: new { controller = "ChiTietSanPham", action = "index", id = UrlParameter.Optional }
            );
+            //comment
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "comment",
+               url: "chi-tiet/{MetaTitle}-{id}",
+               defaults: new { controller = "Comment", action = "index", id = UrlParameter.Optional }
+           );
+
             //loai san pham ở thanh header
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(

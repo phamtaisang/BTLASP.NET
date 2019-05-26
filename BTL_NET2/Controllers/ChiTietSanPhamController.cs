@@ -19,10 +19,10 @@ namespace BTL_NET2.Controllers
                        join us in data.account on cm.accountid equals us.id
                        where cm.productid == id select cm).ToList();
 
-            foreach (var i in chitiet)
+            foreach (var ct in chitiet)
             {
                 //ViewBag.idLoai = i.producerid;
-                var splienquan = (from lq in data.PRODUCT where lq.producerid == i.producerid select lq).Take(3).ToList();
+                var splienquan = (from lq in data.PRODUCT where lq.producerid == ct.producerid select lq).Take(3).ToList();
                 ViewBag.splienquan = splienquan;
             }
             var sanphammoi = (from i in data.PRODUCT orderby i.id descending select i).Take(4).ToList();
@@ -30,6 +30,20 @@ namespace BTL_NET2.Controllers
             ViewBag.cmm = cmm;
             ViewBag.chitiet = chitiet;
             return View();
+        }
+        public ActionResult Commnet(string txtNoiDung,int id)
+        {
+            feedback phanhoi = new feedback();
+            account user = (account)Session["TaiKhoan"];
+          
+            phanhoi.accountid = user.id;
+            phanhoi.productid = id;
+            phanhoi.comment = txtNoiDung;
+            phanhoi.created_at = DateTime.Today;
+            phanhoi.update_at = DateTime.Now;
+            data.feedback.Add(phanhoi);
+            data.SaveChanges();
+           return RedirectToAction("Index","ChiTietSanPham");
         }
     }
 }

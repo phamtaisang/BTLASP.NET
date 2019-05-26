@@ -1,0 +1,24 @@
+﻿@using BTL_NET2.Models;
+@{
+    ViewBag.Title = "ThongTin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-sm-push-3">
+            <h2>ThongTin</h2>
+            @{
+                account user = (account)Session["TaiKhoan"];
+                <p>Họ Tên :  @user.name</p>
+                <p>Địa Chỉ email :  @user.email</p>
+                <p>Mật khẩu : @user.password</p>
+                <p>Địa chỉ : @user.address</p>
+                <p>Số điện thoại : @user.phone</p>
+                <p>Ngày Sinh : @user.created_at</p>
+
+            }
+        </div>
+    </div>
+</div>
+

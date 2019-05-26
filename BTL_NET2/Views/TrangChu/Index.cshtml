@@ -43,10 +43,10 @@
                                     </div>
                                 </div>
                             }
-                          
+
                         </div>
                     </div> <!-- .beta-products-list -->
-                    
+
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
@@ -79,11 +79,11 @@
                                 </div>
                             }
                             @*phân trang*@
-                                <div class="col-sm-12 text-center">
-                                    @*Trang @(Model.PageCount < ViewBag.sanphammoi.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount*@
-          
-                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }));
-                                </div>
+                            <div class="col-sm-12 text-center">
+                                @*Trang @(Model.PageCount < ViewBag.sanphammoi.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount*@
+
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }));
+                            </div>
                         </div>
 
                         <div class="space40">&nbsp;</div>

@@ -1,4 +1,4 @@
-namespace BTL_NET2.Models
+﻿namespace BTL_NET2.Models
 {
     using System;
     using System.Collections.Generic;
@@ -18,23 +18,28 @@ namespace BTL_NET2.Models
 
         public int id { get; set; }
 
-        [Required]
+        [Display(Name = "Họ Và Tên : ")]
+        [Required(ErrorMessage ="{0} Không được để trống nhé ! ")]
         [StringLength(255)]
         public string name { get; set; }
 
-        [Required]
+        [Display(Name = "Đia chỉ Email:")]
+        [Required(ErrorMessage = "Không được để trống nhé ! ")]
         [StringLength(255)]
         public string email { get; set; }
 
-        [Required]
+        [Display(Name = "Mật khẩu : ")]
+        [Required(ErrorMessage = "Không được để trống nhé ! ")]
         [StringLength(255)]
         public string password { get; set; }
 
-        [Required]
+        [Display(Name = "Địa chỉ : ")]
+        [Required(ErrorMessage = "Không được để trống nhé ! ")]
         [StringLength(255)]
         public string address { get; set; }
 
-        [Required]
+        [Display(Name = "Số điện thoại : ")]
+        [Required(ErrorMessage = "Không được để trống nhé ! ")]
         [StringLength(15)]
         public string phone { get; set; }
 
