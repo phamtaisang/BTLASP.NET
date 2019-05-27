@@ -31,11 +31,12 @@ namespace BTL_NET2.Controllers
             ViewBag.chitiet = chitiet;
             return View();
         }
+        [HttpGet]
         public ActionResult Commnet(string txtNoiDung,int id)
         {
+           
             feedback phanhoi = new feedback();
-            account user = (account)Session["TaiKhoan"];
-          
+            account user = (account)Session["TaiKhoan"];      
             phanhoi.accountid = user.id;
             phanhoi.productid = id;
             phanhoi.comment = txtNoiDung;
@@ -43,7 +44,7 @@ namespace BTL_NET2.Controllers
             phanhoi.update_at = DateTime.Now;
             data.feedback.Add(phanhoi);
             data.SaveChanges();
-           return RedirectToAction("Index","ChiTietSanPham");
+           return RedirectToAction("Index", "ChiTietSanPham", new { id = id });
         }
     }
 }

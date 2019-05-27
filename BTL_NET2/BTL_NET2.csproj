@@ -711,7 +711,6 @@
     <Content Include="Views\DangNhap\DangKy.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\DangNhap\ThongTin.cshtml" />
-    <Content Include="Views\ChiTietSanPham\Commnet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

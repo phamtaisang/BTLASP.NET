@@ -25,38 +25,42 @@
 
                 <div class="col-sm-9">
                     <div class="beta-products-list">
+                        @foreach (var item in @ViewBag.sanpham)
+                        {
+                            @item.category.name
+                            break;
+                        }
 
 
+                            <div class="row">
 
-                        <div class="row">
+                                @foreach (var item in @ViewBag.sanpham)
+                                {
+                                    var url = "/chi-tiet/" + item.name + "-" + item.id;
+                                    <div class="col-sm-4">
 
-                            @foreach (var item in @ViewBag.sanpham)
-                            {
-                                var url = "/chi-tiet/" + item.name + "-" + item.id;
-                                <div class="col-sm-4">
-                                    
-                                    <div class="single-item">
-                                        <div class="single-item-header">
-                                            <a href="@url"><img src="~/Style_CSS/image/product/@item.images" alt=""></a>
-                                        </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">@item.name</p>
-                                            <p class="single-item-price">
-                                                <span>@item.price $ </span>
-                                            </p>
-                                        </div>
-                                        <div class="single-item-caption">
-                                            
-                                            <a class="beta-btn primary" href="@url">Chi tiết<i class="fa fa-chevron-down"></i></a>
-                                            
+                                        <div class="single-item">
+                                            <div class="single-item-header">
+                                                <a href="@url"><img src="~/Style_CSS/image/product/@item.images" alt=""></a>
+                                            </div>
+                                            <div class="single-item-body">
+                                                <p class="single-item-title">@item.name</p>
+                                                <p class="single-item-price">
+                                                    <span>@item.price $ </span>
+                                                </p>
+                                            </div>
+                                            <div class="single-item-caption">
+
+                                                <a class="beta-btn primary" href="@url">Chi tiết<i class="fa fa-chevron-down"></i></a>
+
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
+                                }
+
+                            </div>
 
                         </div>
-
-                    </div>
                 </div> <!-- .beta-products-list -->
 
                 <div class="space50">&nbsp;</div>

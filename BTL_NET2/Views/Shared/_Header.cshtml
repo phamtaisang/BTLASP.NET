@@ -25,7 +25,7 @@
                                     }
                                 </a>
                             </li>
-                            <li><a href="@Url.Action("DangNhap","DangNhap")">Đăng xuất</a></li>
+                            <li><a href="@Url.Action("DangXuat","DangNhap")">Đăng xuất</a></li>
                         }
                     }
 
@@ -42,9 +42,12 @@
             <div class="pull-right beta-components space-left ov">
                 <div class="space10">&nbsp;</div>
                 <div class="beta-comp">
+                  
                     <form role="search" method="get" id="searchform" action="/">
-                        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
-                        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                        @using (Html.BeginForm("TimKiem", "SinhVien", FormMethod.Get))
+                        {
+                        @Html.TextBox("SearchString")<input type="submit" value="Tìm kiếm" />
+                        }
                     </form>
                 </div>
 

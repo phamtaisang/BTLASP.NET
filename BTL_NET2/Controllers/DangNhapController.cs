@@ -66,9 +66,16 @@ namespace BTL_NET2.Controllers
             }
            
         }
+        //thong tin dang nhap
         public ActionResult ThongTin()
         {
             return View();
+        }
+        //đăng xuất
+        public ActionResult DangXuat()
+        {
+            Session["TaiKhoan"] = null;
+            return new RedirectResult("DangNhap");
         }
     }
 }

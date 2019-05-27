@@ -76,84 +76,92 @@
                             }
                             else
                             {
-                                using (Html.BeginForm("Commnet", "ChiTietSanPham", FormMethod.Post))
+                                using (Html.BeginForm("Commnet", "ChiTietSanPham", 2, FormMethod.Get))
                                 {
                                     @Html.AntiForgeryToken()
 
                                     account user = (account)Session["TaiKhoan"];
                                     <p>tài khoản :  <i> @user.email</i></p>
-                                      @Html.AntiForgeryToken()
-                                    <p>@Html.TextBox("txtNoiDung")</p>
+                                    @Html.AntiForgeryToken()
+                                    <p>
+                                        @Html.TextBox("txtNoiDung")
+                                    </p>
+                                    foreach (var i in @ViewBag.chitiet)
+                                    {
+                                        int id_sp = i.id;
+                                        @Html.Hidden("id",id_sp)
+
+                                    }
                                     <p><input type="submit" name="btnsubmit" value="Gửi" /></p>
                                 }
                             }
                         }
 
                     </div>
-                            <div class="noidung">
-                                @foreach (var cm in @ViewBag.cmm)
-                                {
-                                    <p>
-                                        <b>@cm.account.email</b> : <span>@cm.comment</span>
-                                    </p>
-                                }
+                    <div class="noidung">
+                        @foreach (var cm in @ViewBag.cmm)
+                        {
+                            <p>
+                                <b>@cm.account.email</b> : <span>@cm.comment</span>
+                            </p>
+                        }
+                    </div>
+
+
+                </div>
+                <div class="space50">&nbsp;</div>
+                <div class="beta-products-list">
+                    <h4>Sản phẩm liên quan </h4>
+
+                    <div class="row">
+                        @foreach (var i in @ViewBag.splienquan)
+                        {
+                            var url = "/chi-tiet/" + i.name + "-" + i.id;
+                            <div class="col-sm-4">
+                                <div class="single-item">
+                                    <div class="single-item-header">
+                                        <a href="@url"><img src="~/Style_CSS/image/product/@i.images" alt=""></a>
+                                    </div>
+                                    <div class="single-item-body">
+                                        <p class="single-item-title">@i.name</p>
+                                        <p class="single-item-price">
+                                            <span>@i.price</span>
+                                        </p>
+                                    </div>
+                                    <div class="single-item-caption">
+
+                                        <a class="beta-btn primary" href="@url">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
                             </div>
+
+                        }
+                    </div>
+                </div> <!-- .beta-products-list -->
+            </div>
+            <div class="col-sm-3 aside">
+                <div class="widget">
+                    <h3 class="widget-title">Sản phẩm mới</h3>
+                    <div class="widget-body">
+                        <div class="beta-sales beta-lists">
+                            @foreach (var i in @ViewBag.sanphammoi)
+                            {
+                                var url = "/chi-tiet/" + i.name + "-" + i.id;
+                                <div class="media beta-sales-item">
+                                    <a class="pull-left" href="@url"><img src="~/Style_CSS/image/product/@i.images" alt=""></a>
+                                    <div class="media-body">
+                                        @i.name
+                                        <span class="beta-sales-price">@i.price $</span>
+                                    </div>
+                                </div>
+                            }
 
 
                         </div>
-                        <div class="space50">&nbsp;</div>
-                        <div class="beta-products-list">
-                            <h4>Sản phẩm liên quan </h4>
-
-                            <div class="row">
-                                @foreach (var i in @ViewBag.splienquan)
-                                {
-                                    var url = "/chi-tiet/" + i.name + "-" + i.id;
-                                    <div class="col-sm-4">
-                                        <div class="single-item">
-                                            <div class="single-item-header">
-                                                <a href="@url"><img src="~/Style_CSS/image/product/@i.images" alt=""></a>
-                                            </div>
-                                            <div class="single-item-body">
-                                                <p class="single-item-title">@i.name</p>
-                                                <p class="single-item-price">
-                                                    <span>@i.price</span>
-                                                </p>
-                                            </div>
-                                            <div class="single-item-caption">
-
-                                                <a class="beta-btn primary" href="@url">Chi tiết <i class="fa fa-chevron-right"></i></a>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                }
-                            </div>
-                        </div> <!-- .beta-products-list -->
                     </div>
-                    <div class="col-sm-3 aside">
-                        <div class="widget">
-                            <h3 class="widget-title">Sản phẩm mới</h3>
-                            <div class="widget-body">
-                                <div class="beta-sales beta-lists">
-                                    @foreach (var i in @ViewBag.sanphammoi)
-                                    {
-                                        var url = "/chi-tiet/" + i.name + "-" + i.id;
-                                        <div class="media beta-sales-item">
-                                            <a class="pull-left" href="@url"><img src="~/Style_CSS/image/product/@i.images" alt=""></a>
-                                            <div class="media-body">
-                                                @i.name
-                                                <span class="beta-sales-price">@i.price $</span>
-                                            </div>
-                                        </div>
-                                    }
-
-
-                                </div>
-                            </div>
-                        </div> <!-- best sellers widget -->
-                    </div>
-                </div>
-            </div> <!-- #content -->
-        </div> <!-- .container -->
+                </div> <!-- best sellers widget -->
+            </div>
+        </div>
+    </div> <!-- #content -->
+</div> <!-- .container -->
