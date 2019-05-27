@@ -31,6 +31,8 @@ namespace BTL_NET2.Controllers
                 user.address = model.address;
                 user.phone = model.phone;
                 user.email = model.email;
+                user.role = 1;
+                user.status = 0;
                 user.created_at = DateTime.Today;
                 user.update_at = DateTime.Now;
                 db.account.Add(user);
