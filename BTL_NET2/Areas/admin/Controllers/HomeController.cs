@@ -13,7 +13,7 @@ namespace BTL_NET2.Areas.admin.Controllers
         Model1 data = new Model1();
         public ActionResult Index()
         {
-            var loai = data.categories.ToList();
+            var loai = (from i in data.category select i).ToList();
             ViewBag.loai = loai;
             return View();
         }
