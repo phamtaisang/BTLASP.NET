@@ -7,6 +7,8 @@ namespace BTL_NET2.Models
 
     public partial class Model1 : DbContext
     {
+        internal object categorie;
+
         public Model1()
             : base("name=Model_db")
         {
