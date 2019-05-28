@@ -41,14 +41,14 @@
             </div>
             <div class="pull-right beta-components space-left ov">
                 <div class="space10">&nbsp;</div>
-                <div class="beta-comp">
+                <div class="beta-comp timkiem">
                   
-                    <form role="search" method="get" id="searchform" action="/">
-                        @using (Html.BeginForm("TimKiem", "SinhVien", FormMethod.Get))
-                        {
-                        @Html.TextBox("SearchString")<input type="submit" value="Tìm kiếm" />
+                   
+                      @using (Html.BeginForm("TimKiem","TimKiem", FormMethod.Get))
+                      {
+                       @Html.TextBox("SearchString")<input type="submit" value="Search" class="btn" />
                         }
-                    </form>
+          
                 </div>
 
                 <div class="beta-comp">

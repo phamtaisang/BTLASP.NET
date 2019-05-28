@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+<div class="row">
+    <div class="col-6 col-sm-push-3">
+        @foreach (var i in @ViewBag.show)
+        {
+            var url = "/chi-tiet/" + i.name + "-" + i.id;
+            <div class="cart-item spTimkiem">
+                <div class="media">
+                    <a class="pull-left" href="@url"><img src="~/Style_CSS/image/product/@i.images" alt=""></a>
+                    <div class="media-body">
+                        <a href="@url"> <span class="cart-item-title">@i.name</span></a>
+                        <span class="cart-item-options">@i.producer.name</span>
+                        <span class="cart-item-amount"><span>@i.price</span>$</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</div>

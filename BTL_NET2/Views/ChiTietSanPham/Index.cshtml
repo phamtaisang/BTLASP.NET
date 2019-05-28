@@ -102,7 +102,9 @@
                         @foreach (var cm in @ViewBag.cmm)
                         {
                             <p>
-                                <b>@cm.account.email</b> : <span>@cm.comment</span>
+                                <b>@cm.account.email</b> :
+                            <p>*<span>@cm.comment</span>  ---- <span style="color:gray;font-size:11px">@cm.update_at</span></p>
+                          
                             </p>
                         }
                     </div>

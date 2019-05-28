@@ -1570,6 +1570,25 @@ ul.sub-menu ul.sub-menu, ul.children ul.children {
         margin-left: 7px
     }
 
+.timkiem {
+    position: relative;
+}
+
+    .timkiem .btn {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 50px;
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        font-size: 11px;
+        color: gray;
+    }
+
+        .timkiem .btn:hover {
+        }
+
 .beta-comp {
     float: left
 }
