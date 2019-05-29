@@ -12,13 +12,16 @@
             <div class="row">
                 <div class="col-sm-3">
                     <ul class="aside-menu">
+                       
                         @foreach (var item in @ViewBag.loai)
                         {
                             var url = "/loai/" + item.name + "-" + item.id;
-                            <li>
-                                <a href="@url">@item.name</a>
-
-                            </li>
+                           
+                                <li>
+                                    <a href="@url">@item.name</a>
+                                    ( @item.PRODUCT.Count )
+                                </li>
+                           
                         }
                     </ul>
                 </div>
@@ -46,7 +49,7 @@
                                             <div class="single-item-body">
                                                 <p class="single-item-title">@item.name</p>
                                                 <p class="single-item-price">
-                                                    <span>@item.price $ </span>
+                                                    <span>@item.price.ToString("#,##0").Replace(',', '.') VNĐ </span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">

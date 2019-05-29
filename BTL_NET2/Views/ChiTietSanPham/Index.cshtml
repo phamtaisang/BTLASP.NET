@@ -19,7 +19,7 @@
                                 <p class="single-item-title">@i.name</p>
 
                                 <p class="single-item-price">
-                                    <span>@i.price</span>
+                                    <span>@i.price.ToString("#,##0").Replace(',', '.') VNĐ</span>
                                 </p>
                             </div>
 
@@ -34,30 +34,33 @@
                             <p>Options:</p>
                             <div class="single-item-options">
                                 @*<select class="wc-select" name="size">
-                                        <option>Size</option>
-                                        <option value="XS">XS</option>
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                    </select>*@
+            <option>Size</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+        </select>*@
                                 @*<select class="wc-select" name="color">
-                                        <option>Color</option>
-                                        <option value="Red">Red</option>
-                                        <option value="Green">Green</option>
-                                        <option value="Yellow">Yellow</option>
-                                        <option value="Black">Black</option>
-                                        <option value="White">White</option>
-                                    </select>*@
+            <option>Color</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+        </select>*@
                                 @*<select class="wc-select" name="color">
-                                        <option>Qty</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>*@
-                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Thêm vào rỏ hàng</a>
+            <option>Qty</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>*@
+                                @{var url = "/them-gio-hang/" + i.name + "-" + i.id;
+                                }
+                                <a class="add-to-cart" href="@Url.Action("ThemVaoGio", "GioHang", new { sanPhamID = i.id })">Thêm vào rỏ hàng</a>
+
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -84,7 +87,7 @@
                                     <p>tài khoản :  <i> @user.email</i></p>
                                     @Html.AntiForgeryToken()
                                     <p>
-                                        @Html.TextBox("txtNoiDung")
+                                        @Html.TextArea("txtNoiDung")
                                     </p>
                                     foreach (var i in @ViewBag.chitiet)
                                     {
@@ -127,7 +130,7 @@
                                     <div class="single-item-body">
                                         <p class="single-item-title">@i.name</p>
                                         <p class="single-item-price">
-                                            <span>@i.price</span>
+                                            <span>@i.price.ToString("#,##0").Replace(',', '.') VNĐ</span>
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
@@ -154,7 +157,7 @@
                                     <a class="pull-left" href="@url"><img src="~/Style_CSS/image/product/@i.images" alt=""></a>
                                     <div class="media-body">
                                         @i.name
-                                        <span class="beta-sales-price">@i.price $</span>
+                                        <span class="beta-sales-price">@i.price.ToString("#,##0").Replace(',', '.') VNĐ</span>
                                     </div>
                                 </div>
                             }

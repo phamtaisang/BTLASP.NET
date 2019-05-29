@@ -150,6 +150,7 @@
     <Compile Include="Areas\admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\ChiTietSanPhamController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Models\account.cs" />
     <Compile Include="Models\bill.cs" />
     <Compile Include="Models\billdetail.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\category.cs" />
     <Compile Include="Models\feedback.cs" />
     <Compile Include="Models\Model1.cs" />
@@ -2466,6 +2468,8 @@
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
     <Content Include="Views\DangNhap\ThongTin.cshtml" />
     <Content Include="Views\TimKiem\TimKiem.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\GioHang\ThanhToan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

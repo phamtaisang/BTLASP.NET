@@ -6,6 +6,7 @@
 <div class="container">
 <div class="row">
     <div class="col-6 col-sm-push-3">
+        <div style="color:brown;text-align:center;font-size:17px"> @ViewBag.thongbao</div>
         @foreach (var i in @ViewBag.show)
         {
             var url = "/chi-tiet/" + i.name + "-" + i.id;

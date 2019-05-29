@@ -1546,6 +1546,7 @@ ul.sub-menu ul.sub-menu, ul.children ul.children {
         color: white;
         height: 45px;
         text-align: center;
+        line-height: 45px;
     }
 
 .wc-select {

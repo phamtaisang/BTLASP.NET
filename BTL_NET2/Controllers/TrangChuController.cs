@@ -26,12 +26,8 @@ namespace BTL_NET2.Controllers
             IPagedList<PRODUCT> sanphammoi = (from i in data.PRODUCT orderby i.id descending select i).ToPagedList(pageNumber,pageSize);
             ViewBag.sanphamNB = sanphamNoiBat;
             ViewBag.sanphammoi = sanphammoi;
+            List<CartItem> giohang = Session["giohang"] as List<CartItem>;
             return View(sanphammoi);
-        }
-        public ActionResult HeaderLoaiSP()
-        {
-
-            return View();
         }
         public ActionResult DSLoaiSP(int id)
         {

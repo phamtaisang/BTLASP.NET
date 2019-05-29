@@ -25,6 +25,7 @@ namespace BTL_NET2.Controllers
             IPagedList<PRODUCT> sp = data.PRODUCT.ToList().ToPagedList(pageNumber, pageSize);
             ViewBag.sp = sp;
             ViewBag.loai = loai;
+            ViewBag.dem = data.PRODUCT.ToList().Count();
             return View(sp);
         }
         public ActionResult DS_sanpham(int id)

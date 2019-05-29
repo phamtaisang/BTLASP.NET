@@ -16,7 +16,7 @@
                     <div class="beta-products-list">
                         <h4>Sản phẩm nổi bật </h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">438 styles found</p>
+                         
                             <div class="clearfix"></div>
                         </div>
 
@@ -32,7 +32,7 @@
                                         <div class="single-item-body">
                                             <p class="single-item-title">@item.name</p>
                                             <p class="single-item-price">
-                                                <span>@item.price $ </span>
+                                                <span>@item.price.ToString("#,##0").Replace(',', '.') VNĐ </span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
@@ -52,7 +52,7 @@
                     <div class="beta-products-list">
                         <h4>Sản phẩm mới </h4>
                         <div class="beta-products-details">
-                            <p class="pull-left">438 styles found</p>
+                            
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
@@ -67,7 +67,7 @@
                                         <div class="single-item-body">
                                             <p class="single-item-title">@item.name</p>
                                             <p class="single-item-price">
-                                                <span>@item.price $ </span>
+                                                <span>@item.price.ToString("#,##0").Replace(',', '.') VNĐ </span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">

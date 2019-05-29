@@ -41,6 +41,7 @@ namespace BTL_NET2.Controllers
             else
             {
                 ViewBag.loi = "email đã tồn tại";
+               
             }
             return Redirect("DangKy");
         }
@@ -63,7 +64,7 @@ namespace BTL_NET2.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "dang nhap sai ");
+                ViewBag.loi = "loi";
                 return Redirect("DangNhap");
             }
            

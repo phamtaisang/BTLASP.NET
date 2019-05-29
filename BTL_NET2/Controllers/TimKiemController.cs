@@ -25,8 +25,13 @@ namespace BTL_NET2.Controllers
             if (!String.IsNullOrEmpty(searchString)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
                 links = links.Where(s => s.name.Contains(searchString)); //lọc theo chuỗi tìm kiếm
+                
             }
-
+            int dem = links.Count();
+            if (dem == 0)
+            {
+                ViewBag.thongbao = "Không tìm thấy sản phẩm nào ! ";
+            }
             ViewBag.show = links;
             return View();
         }

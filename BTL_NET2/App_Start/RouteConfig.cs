@@ -25,8 +25,15 @@ namespace BTL_NET2
                url: "chi-tiet/{MetaTitle}-{id}",
                defaults: new { controller = "ChiTietSanPham", action = "index", id = UrlParameter.Optional }
            );
-      
-          
+            //gio hang id
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+               name: "giohang",
+               url: "them-gio-hang/{MetaTitle}-{id}",
+               defaults: new { controller = "GioHang", action = "ThemVaoGio", id = UrlParameter.Optional }
+           );
+
+
 
             //loai san pham ở thanh header
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

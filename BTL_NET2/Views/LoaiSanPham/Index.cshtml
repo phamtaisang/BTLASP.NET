@@ -28,7 +28,9 @@
 
                 <div class="col-sm-9">
                     <div class="beta-products-list">
-                        <h4>Sản phẩm </h4>
+                        <h4>
+                            Sản phẩm (@ViewBag.dem)
+                        </h4>
 
 
                         <div class="row">
@@ -44,7 +46,7 @@
                                         <div class="single-item-body">
                                             <p class="single-item-title">@item.name</p>
                                             <p class="single-item-price">
-                                                <span>@item.price $ </span>
+                                                <span>@item.price.ToString("#,##0").Replace(',', '.') VNĐ</span>
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
