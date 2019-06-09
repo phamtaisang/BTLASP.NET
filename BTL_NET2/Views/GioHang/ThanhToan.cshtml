@@ -1,17 +1,40 @@
-﻿
+﻿@using BTL_NET2.Models;
 @{
     ViewBag.Title = "ThanhToan";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-xs-push-3" style="color:green;text-align:center">
-            <p><h5>Đặt hàng thành công</h5></p>
-            <p>Đơn hàng sẽ được giao sớm nhất </p>
-            <p>Liên hệ : 098888888888</p>
-            <p>Cảm ơn bạn đã tin tưởng và mua hàng của chúng tôi !!</p>
+@if (Session["TaiKhoan"] == null || Session["TaiKhoan"] == "")
+{
+<div style="padding:100px;text-align:center"> <p> Bạn phải đăng nhập ! </p></div>
+   
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-push-3" style="color:green;text-align:left;margin:auto">
+                <div style="text-align:center;font-size:15px;color:brown;padding:20px;">MUA HÀNG THÀNH CÔNG</div>
+                @{
+                    account user = (account)Session["TaiKhoan"];
+                    <hr />
+                    <p><span>Email :</span>@user.email</p>
+                    <hr />
+                    <p><span>Họ tên :</span>  @user.name</p>
+                    <hr />
+                    <p><span>Số điện thoại : @user.phone</span></p>
+                    <hr />
+                    <p><span>Địa chỉ : </span> @user.address</p>
+                    <hr />
+                }
+              
+                <p>Đơn hàng sẽ được giao sớm nhất </p>
+                <p>Liên hệ : 098888888888</p>
+                <p>Cảm ơn bạn đã tin tưởng và mua hàng của chúng tôi !!</p>
+                <hr />
+            </div>
         </div>
     </div>
-</div>
+}
+
 

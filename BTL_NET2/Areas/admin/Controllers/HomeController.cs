@@ -14,7 +14,37 @@ namespace BTL_NET2.Areas.admin.Controllers
         public ActionResult Index()
         {
             var loai = (from i in data.category select i).ToList();
+            var loai1 = (from ca in data.category
+                         join pr in data.PRODUCT on ca.id equals pr.catID
+                         where ca.id == 1 select ca ).ToList();
+            
+            var prod = (from i in data.PRODUCT select i).ToList();
+            var bill = (from i in data.bill select i).ToList();
+           var user = (from i in data.account select i).ToList();
+
+            //comment
+            var cmt = (from i in data.feedback orderby i.id descending select i).Take(10).ToList();
+            //foreach(var im in cmt)
+            //{
+            //    ViewBag.id = im.id;
+            //    //var cmt1 = (from i in data.feedbacks where i.accountid == im.id select i).Take(10).ToList();
+               
+            //}
+
+
+            //hiển thị danh tổng số cmt theo user
+            var SumCmt = (from i in data.account select i).ToList();
+
             ViewBag.loai = loai;
+            ViewBag.dem = loai.Count();
+            ViewBag.loai_1 = loai1.Count();
+            ViewBag.demprod = prod.Count();
+            ViewBag.dembill = bill.Count();
+            ViewBag.demuser = user.Count();
+            ViewBag.cmt = cmt;
+           
+            ViewBag.SumCmt = SumCmt;
+
             return View();
         }
     }

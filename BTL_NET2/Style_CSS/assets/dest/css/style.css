@@ -5642,6 +5642,7 @@ li.box-port-filter {
 
 #logo {
     padding-right: 7px;
+    opacity: 0;
 }
 
 .beta-highlight {

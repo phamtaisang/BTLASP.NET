@@ -7,7 +7,11 @@ namespace BTL_NET2.Models
 
     public partial class Model1 : DbContext
     {
+        internal readonly object PRODUCTs;
+        internal readonly object accounts;
         internal object categorie;
+        internal object categories;
+        internal object feedbacks;
 
         public Model1()
             : base("name=Model_db")
@@ -21,6 +25,7 @@ namespace BTL_NET2.Models
         public virtual DbSet<feedback> feedback { get; set; }
         public virtual DbSet<producer> producer { get; set; }
         public virtual DbSet<PRODUCT> PRODUCT { get; set; }
+        public object bills { get; internal set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

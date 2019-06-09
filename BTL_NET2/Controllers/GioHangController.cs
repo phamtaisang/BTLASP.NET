@@ -80,8 +80,48 @@ namespace BTL_NET2.Controllers
 
         // tien hanh dat hang
         [HttpPost]
-        public ActionResult ThanhToan(CartItem dh)
+        public ActionResult ThanhToan()
         {
+            if (Session["giohang"] == null)
+            {
+                RedirectToAction("index", "TrangChu");
+            }
+            //them don hang
+            else
+            {
+                if (Session["TaiKhoan"] == null || Session["TaiKhoan"] == "")
+                {
+                    RedirectToAction("DangNhap", "DangNhap");
+                }
+                else
+                {
+                    bill bl = new bill();
+                    account user = (account)Session["TaiKhoan"];
+                    bl.accountId = user.id;
+                    bl.total = 1;
+                    bl.status = 1;
+                    bl.created_at = DateTime.Now;
+                    bl.update_at = DateTime.Now;
+                    db.bill.Add(bl);
+                    ////them tiep vao billdetal
+                    //billdetail bdt = new billdetail();
+                    //bdt.billID = bl.id;
+                    //List<CartItem> gh = giohang();
+                    //foreach (var item in giohang)
+                    //{
+                    //    gh.SanPhamID = bdt.productId;
+                    //    gh.SoLuong = bdt.quantity;
+                    //    gh.DonGia = bdt.price;
+                    //    bdt.discount = 1;
+                    //    gh.DonGia = gh.SoLuong * bdt.sum_price;
+                    //    bdt.created_at = DateTime.Now;
+                    //    bdt.update_at = DateTime.Now;
+                    //    db.billdetail.Add(bdt);
+                    //}
+                   
+                    db.SaveChanges();
+                }
+            }
             return View();
         }
     }

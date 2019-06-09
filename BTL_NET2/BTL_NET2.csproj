@@ -143,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\admin\Controllers\BillController.cs" />
     <Compile Include="Areas\admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
@@ -1927,6 +1928,16 @@
     <Content Include="Areas\admin\Views\User\Login.cshtml" />
     <Content Include="Areas\admin\Views\User\RegisterPass.cshtml" />
     <Content Include="Areas\admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\admin\Views\Bill\DS_Bill.cshtml" />
+    <Content Include="Areas\admin\Views\Category\DS_theloai.cshtml" />
+    <Content Include="Areas\admin\Views\Category\Sua_sanpham.cshtml" />
+    <Content Include="Areas\admin\Views\Category\Them_TheLoai.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Sua_sanpham.cshtml" />
+    <Content Include="Areas\admin\Views\Products\Them_sampham.cshtml" />
+    <Content Include="Areas\admin\Views\User\Comment.cshtml" />
+    <Content Include="Areas\admin\Views\User\Hien_cmt.cshtml" />
+    <Content Include="Areas\admin\Views\User\Info.cshtml" />
+    <Content Include="Areas\admin\Views\User\User_info.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
